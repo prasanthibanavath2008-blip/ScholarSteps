@@ -1,0 +1,533 @@
+[
+  {
+    "id": "ssp-karnataka-postmatric-2026",
+    "slug": "ssp-karnataka-postmatric",
+    "version": 1,
+    "name": "Karnataka State Scholarship Portal (SSP) Post-Matric Scheme",
+    "provider": {
+      "name": "Social Welfare & Backward Classes Welfare Dept, Govt of Karnataka",
+      "type": "State Government Department",
+      "officialWebsite": "https://ssp.postmatric.karnataka.gov.in/"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "GENERAL_DEGREE", "MEDICAL", "COMMERCE", "ARTS_SCIENCE"],
+    "domicileStates": ["Karnataka"],
+    "shortSummary": "State post-matric assistance covering tuition fees and monthly maintenance for eligible resident college students.",
+    "detailedDescription": "The State Scholarship Portal (SSP) of Karnataka acts as a unified platform for post-matric fee reimbursement and maintenance allowances provided by the Social Welfare, Tribal Welfare, Minorities, and Backward Classes Welfare departments.",
+    "benefit": {
+      "type": "REIMBURSEMENT",
+      "headline": "Full/Partial Tuition Fee Reimbursement + Monthly Maintenance",
+      "details": "Covers statutory government tuition fees and living stipend disbursed directly via Aadhaar-seeded NPCI bank transfer.",
+      "amountMin": 10000,
+      "amountMax": 60000,
+      "currency": "INR"
+    },
+    "availability": "OPEN",
+    "deadlineType": "DATE_ONLY",
+    "deadlineDate": "2026-12-31",
+    "deadlineNotes": "Cycle dates are verified against official GoK circular; portal closes at 23:59 IST on closing day.",
+    "officialPortalUrl": "https://ssp.postmatric.karnataka.gov.in/",
+    "rules": [
+      {
+        "id": "ssp-rule-domicile",
+        "field": "domicileState",
+        "label": "Domicile State",
+        "operator": "EQUALS",
+        "expectedValue": "Karnataka",
+        "explanation": "Applicant must hold Karnataka domicile confirmed by state revenue certificate.",
+        "sourceReferenceId": "ssp-source-portal"
+      },
+      {
+        "id": "ssp-rule-study-level",
+        "field": "studyLevel",
+        "label": "Current Study Level",
+        "operator": "IN",
+        "expectedValue": ["UNDERGRADUATE", "DIPLOMA", "POSTGRADUATE"],
+        "explanation": "Must be enrolled in an accredited post-matric college program in Karnataka.",
+        "sourceReferenceId": "ssp-source-portal"
+      },
+      {
+        "id": "ssp-rule-income",
+        "field": "householdAnnualIncome",
+        "label": "Household Annual Income Ceiling",
+        "operator": "LESS_THAN_OR_EQUAL",
+        "expectedValue": 250000,
+        "explanation": "Annual family gross income must not exceed ₹2,50,000 for standard welfare category claims.",
+        "sourceReferenceId": "ssp-source-guidelines"
+      }
+    ],
+    "documents": [
+      {
+        "id": "ssp-doc-caste-income",
+        "title": "Caste & Income Certificate (15-digit RD Number)",
+        "description": "Issued by Karnataka Revenue Department (Nemmadi Kendra / Atalji Janasnehi Kendra). SSP fetches details using the RD reference code.",
+        "requirementType": "REQUIRED",
+        "instructionUrl": "https://ajsk.karnataka.gov.in/",
+        "sourceReferenceId": "ssp-source-guidelines"
+      },
+      {
+        "id": "ssp-doc-aadhaar-seeding",
+        "title": "Aadhaar Seeding with NPCI Bank Account",
+        "description": "Bank account must be active and linked with NPCI mapper for Direct Benefit Transfer (DBT).",
+        "requirementType": "REQUIRED",
+        "instructionUrl": "https://resident.uidai.gov.in/bank-mapper",
+        "sourceReferenceId": "ssp-source-portal"
+      },
+      {
+        "id": "ssp-doc-fee-receipt",
+        "title": "College Admission Fee Receipt & Student USN/Registration Number",
+        "description": "Official receipt from college stating fee breakdown, along with institutional registration number.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "ssp-source-portal"
+      },
+      {
+        "id": "ssp-doc-hostel",
+        "title": "Hostel Admission Certificate (If residing in hostel)",
+        "description": "Certificate from Warden/Principal confirming government or recognized private hostel residence.",
+        "requirementType": "OPTIONAL",
+        "sourceReferenceId": "ssp-source-guidelines"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Generate Student SSP ID",
+        "description": "Register on ssp.postmatric.karnataka.gov.in using your Aadhaar number and registered mobile phone.",
+        "officialPortalUrl": "https://ssp.postmatric.karnataka.gov.in/"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Enter RD Caste/Income Reference Number",
+        "description": "Enter the 15-digit RD number; the portal pulls digitized revenue records directly.",
+        "officialPortalUrl": "https://ssp.postmatric.karnataka.gov.in/"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Select College & Course via Kutumba/AISHE Code",
+        "description": "Verify your admission details pushed by your college onto the Karnataka State Higher Education portal.",
+        "officialPortalUrl": "https://ssp.postmatric.karnataka.gov.in/"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Submit Application & Submit Signed Acknowledgement to College",
+        "description": "Download final PDF acknowledgement, sign it, and hand over a copy to your college scholarship officer for e-attestation.",
+        "officialPortalUrl": "https://ssp.postmatric.karnataka.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "id": "ssp-source-portal",
+        "url": "https://ssp.postmatric.karnataka.gov.in/",
+        "organization": "Centre for e-Governance, Government of Karnataka",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-15T10:00:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Post-Matric Scholarship portal for Karnataka students across Social Welfare, Tribal Welfare, BCW, and Minorities departments.",
+        "notes": "Reviewed official GoK notification circular 2026-27."
+      },
+      {
+        "id": "ssp-source-guidelines",
+        "url": "https://sw.karnataka.gov.in/page/Scholarships/en",
+        "organization": "Social Welfare Department, Government of Karnataka",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-15T10:00:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Income criteria and RD integration specifications for student scholarship claims.",
+        "notes": "Income ceiling verified from official SW department notification."
+      }
+    ],
+    "isSynthetic": false
+  },
+  {
+    "id": "nsp-central-sector-2026",
+    "slug": "nsp-central-sector-scholarship",
+    "version": 1,
+    "name": "Central Sector Scheme of Scholarships for College and University Students (CSSS)",
+    "provider": {
+      "name": "Department of Higher Education, Ministry of Education, Govt of India",
+      "type": "Central Government Ministry",
+      "officialWebsite": "https://scholarships.gov.in/"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "GENERAL_DEGREE", "MEDICAL", "COMMERCE", "ARTS_SCIENCE"],
+    "domicileStates": ["All India", "Karnataka", "Maharashtra", "Tamil Nadu", "Delhi", "Kerala"],
+    "shortSummary": "National merit-cum-means scholarship for students above the 80th percentile in Class 12 board examinations pursuing regular degree courses.",
+    "detailedDescription": "The Central Sector Scheme of Scholarship for College and University Students is implemented by the Department of Higher Education to provide financial assistance to meritorious students from low-income families to meet a part of their day-to-day expenses while pursuing higher studies.",
+    "benefit": {
+      "type": "FIXED",
+      "headline": "₹12,000 / year for Undergraduate (₹20,000 / year at PG level)",
+      "details": "Annual grant disbursed in 10 installments or lump-sum via Direct Benefit Transfer through PFMS.",
+      "amountMin": 12000,
+      "amountMax": 20000,
+      "currency": "INR"
+    },
+    "availability": "OPEN",
+    "deadlineType": "DATE_ONLY",
+    "deadlineDate": "2026-11-30",
+    "deadlineNotes": "NSP portal applications typically close on November 30; institutional verification deadline extends 15 days later.",
+    "officialPortalUrl": "https://scholarships.gov.in/",
+    "rules": [
+      {
+        "id": "nsp-rule-study-level",
+        "field": "studyLevel",
+        "label": "Enrolled Study Level",
+        "operator": "EQUALS",
+        "expectedValue": "UNDERGRADUATE",
+        "explanation": "Must be enrolled in the 1st year of a regular (non-correspondence / non-distance) degree course.",
+        "sourceReferenceId": "nsp-source-guideline"
+      },
+      {
+        "id": "nsp-rule-score",
+        "field": "academicScorePercentage",
+        "label": "Class 12 Board Percentage / Percentile",
+        "operator": "GREATER_THAN_OR_EQUAL",
+        "expectedValue": 80,
+        "explanation": "Must have scored above the 80th percentile cutoff in Class 12 (or minimum 80% mark benchmark).",
+        "sourceReferenceId": "nsp-source-guideline"
+      },
+      {
+        "id": "nsp-rule-income",
+        "field": "householdAnnualIncome",
+        "label": "Annual Family Income Ceiling",
+        "operator": "LESS_THAN_OR_EQUAL",
+        "expectedValue": 450000,
+        "explanation": "Gross family annual income from all sources must not exceed ₹4,50,000.",
+        "sourceReferenceId": "nsp-source-guideline"
+      }
+    ],
+    "documents": [
+      {
+        "id": "nsp-doc-marksheet",
+        "title": "Class 12 Board Marksheet",
+        "description": "Original marksheet issued by CBSE, ICSE, or State Higher Secondary Education Board.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "nsp-source-guideline"
+      },
+      {
+        "id": "nsp-doc-income",
+        "title": "Competent Authority Family Income Certificate",
+        "description": "Income certificate issued by Tahsildar, Revenue Officer, or competent revenue authority (recent 6 months).",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "nsp-source-guideline"
+      },
+      {
+        "id": "nsp-doc-bonafide",
+        "title": "College Bonafide Student Certificate",
+        "description": "Official Bonafide signed and stamped by the Head of the Institution / College Principal with AISHE Code.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "nsp-source-guideline"
+      },
+      {
+        "id": "nsp-doc-bank",
+        "title": "Bank Passbook with Account Number & IFSC",
+        "description": "Savings bank account in student's sole name, seeded with Aadhaar in NPCI mapping.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "nsp-source-portal"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "One-Time Registration (OTR) on NSP",
+        "description": "Complete face-auth or biometric verification on the National Scholarship Portal to generate your OTR ID.",
+        "officialPortalUrl": "https://scholarships.gov.in/"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Fill Scheme Application & Select College",
+        "description": "Choose Higher Education Department -> Central Sector Scheme. Select your college via AISHE search.",
+        "officialPortalUrl": "https://scholarships.gov.in/"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Upload Document Verification Copies",
+        "description": "Upload scanned copies of Class 12 marksheet, income certificate, and Bonafide.",
+        "officialPortalUrl": "https://scholarships.gov.in/"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Nodal Officer Institutional Verification",
+        "description": "Inform your college scholarship nodal officer to verify and approve the application before the institute cutoff.",
+        "officialPortalUrl": "https://scholarships.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "id": "nsp-source-portal",
+        "url": "https://scholarships.gov.in/",
+        "organization": "Ministry of Electronics & Information Technology, Govt of India",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-18T12:00:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "National Scholarship Portal CSSS scheme guidelines, application workflow, and timeline.",
+        "notes": "Verified against 2026 Guidelines document from education.gov.in."
+      },
+      {
+        "id": "nsp-source-guideline",
+        "url": "https://www.education.gov.in/scholarships-education-loan-4",
+        "organization": "Department of Higher Education, Govt of India",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-18T12:00:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Central Sector Scheme eligibility, income ceiling ₹4.5 Lakhs, 80th percentile board criteria.",
+        "notes": "Income ceiling confirmed."
+      }
+    ],
+    "isSynthetic": false
+  },
+  {
+    "id": "aicte-pragati-scholarship-2026",
+    "slug": "aicte-pragati-girls-scholarship",
+    "version": 1,
+    "name": "AICTE Pragati Scholarship Scheme for Girl Students",
+    "provider": {
+      "name": "All India Council for Technical Education (AICTE)",
+      "type": "Statutory Technical Education Council",
+      "officialWebsite": "https://www.aicte-india.org/"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "DIPLOMA"],
+    "domicileStates": ["All India", "Karnataka", "Maharashtra", "Tamil Nadu", "Telangana", "Uttar Pradesh"],
+    "shortSummary": "Empowering young women pursuing professional degree or diploma courses in AICTE-approved engineering institutions.",
+    "detailedDescription": "Pragati is an initiative implemented by AICTE through the National Scholarship Portal to encourage girl students to pursue technical education. Up to two girl children per family are eligible for financial support.",
+    "benefit": {
+      "type": "FIXED",
+      "headline": "₹50,000 per annum for tuition fees, computer, and academic supplies",
+      "details": "Lump sum ₹50,000 credited annually into the student's Aadhaar-linked savings account.",
+      "amountMin": 50000,
+      "amountMax": 50000,
+      "currency": "INR"
+    },
+    "availability": "OPEN",
+    "deadlineType": "DATE_ONLY",
+    "deadlineDate": "2026-12-15",
+    "deadlineNotes": "Cycle verified on National Scholarship Portal guidelines; institute verification follows.",
+    "officialPortalUrl": "https://scholarships.gov.in/",
+    "rules": [
+      {
+        "id": "aicte-rule-gender",
+        "field": "genderCategory",
+        "label": "Gender",
+        "operator": "EQUALS",
+        "expectedValue": "Female",
+        "explanation": "Scheme is exclusively for girl students.",
+        "sourceReferenceId": "aicte-source-official"
+      },
+      {
+        "id": "aicte-rule-study-level",
+        "field": "studyLevel",
+        "label": "Study Level",
+        "operator": "IN",
+        "expectedValue": ["UNDERGRADUATE", "DIPLOMA"],
+        "explanation": "Must be admitted in 1st year of technical degree or diploma course in an AICTE-approved institution.",
+        "sourceReferenceId": "aicte-source-official"
+      },
+      {
+        "id": "aicte-rule-income",
+        "field": "householdAnnualIncome",
+        "label": "Annual Family Income Ceiling",
+        "operator": "LESS_THAN_OR_EQUAL",
+        "expectedValue": 800000,
+        "explanation": "Total family annual income must not exceed ₹8,00,000 from all sources.",
+        "sourceReferenceId": "aicte-source-official"
+      }
+    ],
+    "documents": [
+      {
+        "id": "aicte-doc-class10-12",
+        "title": "Class 10 and 12 / ITI / Diploma Marksheets",
+        "description": "Authentic copies of qualifying examination certificates.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "aicte-source-official"
+      },
+      {
+        "id": "aicte-doc-admission-letter",
+        "title": "Centralized Admission Allotment Letter",
+        "description": "Allotment letter issued by state CET/JEE admission authority confirming entry into AICTE-approved course.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "aicte-source-official"
+      },
+      {
+        "id": "aicte-doc-income-cert",
+        "title": "Family Income Certificate (Tahsildar/SDM)",
+        "description": "Income certificate stating family income does not exceed 8 Lakhs per annum.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "aicte-source-official"
+      },
+      {
+        "id": "aicte-doc-family-declaration",
+        "title": "Two-Girl-Child Family Declaration (Form A)",
+        "description": "Parent declaration signed by parents confirming not more than two girls are claiming the scheme.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "aicte-source-official"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Register on National Scholarship Portal",
+        "description": "Complete student OTR registration on scholarships.gov.in.",
+        "officialPortalUrl": "https://scholarships.gov.in/"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Select AICTE Pragati Degree / Diploma Scheme",
+        "description": "Fill personal and academic credentials; link AICTE permanent institute ID.",
+        "officialPortalUrl": "https://scholarships.gov.in/"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Upload Mandated Certificates & Declaration",
+        "description": "Upload attested copies of admission letter, income certificate, and Parent declaration.",
+        "officialPortalUrl": "https://scholarships.gov.in/"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Institutional Verification on NSP Portal",
+        "description": "College Institute Nodal Officer verifies admission legitimacy before forwarding to AICTE.",
+        "officialPortalUrl": "https://scholarships.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "id": "aicte-source-official",
+        "url": "https://www.aicte-india.org/schemes/students-development-schemes/pragati-scholarship-scheme",
+        "organization": "All India Council for Technical Education",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-12T14:30:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Pragati scholarship criteria: girl students admitted to technical degree courses with family income under ₹8 lakh.",
+        "notes": "Reviewed from official AICTE circular."
+      }
+    ],
+    "isSynthetic": false
+  },
+  {
+    "id": "mahadbt-postmatric-rajarshi-shahu-2026",
+    "slug": "mahadbt-rajarshi-chhatrapati-shahu-maharaj",
+    "version": 1,
+    "name": "Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulkh Shishyavrutti Yojna (EBC)",
+    "provider": {
+      "name": "Directorate of Higher Education, Govt of Maharashtra",
+      "type": "State Government Directorate",
+      "officialWebsite": "https://mahadbt.maharashtra.gov.in/"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "GENERAL_DEGREE", "MEDICAL", "COMMERCE", "ARTS_SCIENCE"],
+    "domicileStates": ["Maharashtra"],
+    "shortSummary": "Maharashtra 50% tuition and examination fee reimbursement for economically backward general category students.",
+    "detailedDescription": "Administered via the MahaDBT portal by the Directorate of Higher Education (DHE) and Directorate of Technical Education (DTE) Maharashtra for students admitted through the Centralized Admission Process (CAP).",
+    "benefit": {
+      "type": "REIMBURSEMENT",
+      "headline": "50% Tuition & Exam Fee Reimbursement",
+      "details": "Direct reimbursement of 50% tuition fees paid to private or aided college, directly into student bank account.",
+      "amountMin": 15000,
+      "amountMax": 75000,
+      "currency": "INR"
+    },
+    "availability": "OPEN",
+    "deadlineType": "DATE_ONLY",
+    "deadlineDate": "2027-01-15",
+    "deadlineNotes": "MahaDBT post-matric renewal and fresh application deadline for current academic year.",
+    "officialPortalUrl": "https://mahadbt.maharashtra.gov.in/",
+    "rules": [
+      {
+        "id": "mahadbt-rule-domicile",
+        "field": "domicileState",
+        "label": "Domicile State",
+        "operator": "EQUALS",
+        "expectedValue": "Maharashtra",
+        "explanation": "Applicant must be a permanent resident of Maharashtra with a valid domicile certificate.",
+        "sourceReferenceId": "mahadbt-source-portal"
+      },
+      {
+        "id": "mahadbt-rule-study-level",
+        "field": "studyLevel",
+        "label": "Study Level",
+        "operator": "IN",
+        "expectedValue": ["UNDERGRADUATE", "POSTGRADUATE"],
+        "explanation": "Must be admitted to higher education or technical degree course via CAP process.",
+        "sourceReferenceId": "mahadbt-source-portal"
+      },
+      {
+        "id": "mahadbt-rule-income",
+        "field": "householdAnnualIncome",
+        "label": "Family Income Limit",
+        "operator": "LESS_THAN_OR_EQUAL",
+        "expectedValue": 800000,
+        "explanation": "Annual family gross income must not exceed ₹8,00,000.",
+        "sourceReferenceId": "mahadbt-source-portal"
+      }
+    ],
+    "documents": [
+      {
+        "id": "mahadbt-doc-domicile",
+        "title": "Maharashtra Domicile Certificate",
+        "description": "Issued by Tahsildar / Sub-Divisional Officer in Maharashtra.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "mahadbt-source-portal"
+      },
+      {
+        "id": "mahadbt-doc-income",
+        "title": "Income Certificate from Competent Authority",
+        "description": "Annual income certificate issued by Tahsildar for the financial year.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "mahadbt-source-portal"
+      },
+      {
+        "id": "mahadbt-doc-cap",
+        "title": "CAP Allotment Letter",
+        "description": "Official confirmation slip of admission secured through centralized admission process.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "mahadbt-source-portal"
+      },
+      {
+        "id": "mahadbt-doc-ration",
+        "title": "Ration Card / Family Declaration",
+        "description": "Ration card verifying family member count and dependency.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "mahadbt-source-portal"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Register on MahaDBT Portal",
+        "description": "Create applicant profile on mahadbt.maharashtra.gov.in using Aadhaar authentication.",
+        "officialPortalUrl": "https://mahadbt.maharashtra.gov.in/"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Complete 6-Stage Student Profile",
+        "description": "Fill personal, address, other details, current course, past qualification, and hostel info.",
+        "officialPortalUrl": "https://mahadbt.maharashtra.gov.in/"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Select DHE / DTE EBC Scheme",
+        "description": "Apply under Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulkh Shishyavrutti Yojna.",
+        "officialPortalUrl": "https://mahadbt.maharashtra.gov.in/"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Submit for Scrutiny by College Clerk",
+        "description": "College desk scrutinizes uploaded certificates before forwarding to DHE joint director.",
+        "officialPortalUrl": "https://mahadbt.maharashtra.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "id": "mahadbt-source-portal",
+        "url": "https://mahadbt.maharashtra.gov.in/",
+        "organization": "Government of Maharashtra Direct Benefit Transfer",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-20T09:00:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Post-Matric scholarships guidelines and income thresholds for DHE schemes.",
+        "notes": "Verified against Maharashtra GR on EBC concessions."
+      }
+    ],
+    "isSynthetic": false
+  }
+]
+

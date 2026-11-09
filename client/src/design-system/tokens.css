@@ -1,0 +1,36 @@
+:root {
+  --color-canvas: #f7f8fa;
+  --color-canvas-warm: #faf9f6;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f0f3f6;
+  --color-ink: #15263d;
+  --color-ink-secondary: #46566b;
+  --color-ink-muted: #64748b;
+  --color-primary: #0b6b63;
+  --color-primary-hover: #08574f;
+  --color-primary-pressed: #06463f;
+  --color-primary-tint: #e8f5f1;
+  --color-accent: #c9f17c;
+  --color-border: #dfe5eb;
+  --color-border-strong: #bac6d2;
+  --color-focus: #2563eb;
+  --color-info: #2457a7;
+  --color-info-tint: #eff5ff;
+  --color-warning: #875500;
+  --color-warning-tint: #fff5dd;
+  --color-danger: #b42335;
+  --color-danger-tint: #fff0f2;
+  --color-success: #16634f;
+  --color-success-tint: #eaf7f0;
+
+  --radius-control: 12px;
+  --radius-card: 20px;
+  --radius-panel: 24px;
+
+  --shadow-card: 0 2px 4px rgb(21 38 61 / 0.02), 0 12px 28px rgb(21 38 61 / 0.05);
+  --shadow-raised: 0 8px 20px rgb(21 38 61 / 0.06), 0 24px 48px rgb(21 38 61 / 0.08);
+
+  --font-heading: 'Manrope', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+

@@ -1,0 +1,26 @@
+{
+  "name": "scholarsteps",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ScholarSteps - Scholarship discovery and preparation platform",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "npm --workspace=client run dev",
+    "dev:server": "npm --workspace=server run dev",
+    "build": "npm --workspace=client run build && npm --workspace=server run build",
+    "test": "npm --workspace=client test",
+    "test:all": "npm --workspace=client test && npm --workspace=server test",
+    "test:client": "npm --workspace=client test",
+    "test:server": "npm --workspace=server test"
+  },
+  "keywords": [
+    "scholarships",
+    "student-preparation",
+    "scholarsteps"
+  ],
+  "author": "NextStep Rebels",
+  "license": "UNLICENSED"
+}

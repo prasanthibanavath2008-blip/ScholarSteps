@@ -1,0 +1,60 @@
+.font-hero {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw + 1rem, 4rem); /* 40px mobile to 64px desktop */
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.font-page-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.875rem, 3vw + 1rem, 2.5rem); /* 30px mobile to 40px desktop */
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.font-section-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.5625rem, 2vw + 1rem, 1.875rem); /* 25px mobile to 30px desktop */
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.font-card-title {
+  font-family: var(--font-heading);
+  font-weight: 650;
+  font-size: clamp(1.25rem, 1vw + 1rem, 1.3125rem); /* 20px mobile to 21px desktop */
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.font-large-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1.0625rem, 0.5vw + 1rem, 1.125rem); /* 17px mobile to 18px desktop */
+  line-height: 1.65;
+}
+
+.font-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6;
+}
+
+.font-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.4;
+}
+
+.font-metadata {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.5;
+}
+

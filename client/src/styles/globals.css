@@ -1,0 +1,64 @@
+@import '../design-system/tokens.css';
+@import '../design-system/typography.css';
+@import '../design-system/motion.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-ink);
+    letter-spacing: -0.015em;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Step-line motif styling (Section 14.3) */
+.step-line-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-line-segment {
+  height: 2px;
+  background-color: var(--color-border);
+  flex-grow: 1;
+}
+
+.step-line-segment.active {
+  background-color: var(--color-primary);
+}
+
+.step-node {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: var(--color-border-strong);
+}
+
+.step-node.active {
+  background-color: var(--color-primary);
+}
+
+.step-node.completed {
+  background-color: var(--color-success);
+}
+

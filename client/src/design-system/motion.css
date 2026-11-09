@@ -1,0 +1,100 @@
+/* Standard motion tokens and transitions */
+:root {
+  --ease-out-custom: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-button-hover: 140ms;
+  --duration-card-hover: 180ms;
+  --duration-accordion: 200ms;
+  --duration-dialog: 180ms;
+  --duration-bottom-sheet: 240ms;
+  --duration-page-entry: 220ms;
+  --duration-checklist: 160ms;
+  --duration-progress: 300ms;
+  --duration-toast: 180ms;
+}
+
+.transition-button {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: var(--duration-button-hover);
+  transition-timing-function: var(--ease-out-custom);
+}
+
+.transition-card {
+  transition-property: transform, border-color, box-shadow;
+  transition-duration: var(--duration-card-hover);
+  transition-timing-function: var(--ease-out-custom);
+}
+
+.transition-card:hover {
+  transform: translateY(-2px);
+}
+
+.transition-progress {
+  transition: width var(--duration-progress) var(--ease-out-custom);
+}
+
+.animate-page-entry {
+  animation: pageEntry var(--duration-page-entry) var(--ease-out-custom) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--duration-dialog) var(--ease-out-custom) forwards;
+}
+
+.animate-sheet-up {
+  animation: sheetUp var(--duration-bottom-sheet) var(--ease-out-custom) forwards;
+}
+
+@keyframes pageEntry {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sheetUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion preference compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .transition-card:hover {
+    transform: none !important;
+  }
+
+  .animate-page-entry,
+  .animate-fade-in,
+  .animate-sheet-up {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+

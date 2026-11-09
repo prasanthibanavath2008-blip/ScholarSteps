@@ -1,0 +1,88 @@
+[
+  {
+    "id": "synthetic-future-engineers-grant-2026",
+    "slug": "synthetic-future-engineers-grant",
+    "version": 1,
+    "name": "[SYNTHETIC DEMO] NextStep Rebel Emerging Technologists Grant",
+    "provider": {
+      "name": "NextStep Rebel Foundation (Synthetic Demo Fixture)",
+      "type": "Demo Philanthropic Organization",
+      "officialWebsite": "https://example.org/demo-grant"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "COMPUTER_SCIENCE"],
+    "domicileStates": ["Karnataka", "Maharashtra", "Tamil Nadu", "Delhi", "Telangana"],
+    "shortSummary": "Demonstration fixture designed for end-to-end edge case testing and UI walkthroughs.",
+    "detailedDescription": "This is a synthetic demonstration scholarship record provided strictly to test edge cases (such as conditional document sets and variable benefits) without claiming to represent an active legal program.",
+    "benefit": {
+      "type": "VARIABLE",
+      "headline": "Up to ₹75,000 research stipend + equipment grant",
+      "details": "Includes laptop grant and conference participation subsidy upon review of milestone deliverables.",
+      "amountMin": 30000,
+      "amountMax": 75000,
+      "currency": "INR"
+    },
+    "availability": "UPCOMING",
+    "deadlineType": "UNKNOWN",
+    "deadlineNotes": "Cycle date unannounced; illustrative synthetic fixture.",
+    "officialPortalUrl": "https://example.org/demo-grant",
+    "rules": [
+      {
+        "id": "syn-rule-study-level",
+        "field": "studyLevel",
+        "label": "Study Level",
+        "operator": "EQUALS",
+        "expectedValue": "UNDERGRADUATE",
+        "explanation": "Must be enrolled in an undergraduate technical or engineering course.",
+        "sourceReferenceId": "syn-source"
+      },
+      {
+        "id": "syn-rule-academic-score",
+        "field": "academicScorePercentage",
+        "label": "Academic Cutoff",
+        "operator": "GREATER_THAN_OR_EQUAL",
+        "expectedValue": 75,
+        "explanation": "Requires minimum 75% aggregate score in prior qualifying exam.",
+        "sourceReferenceId": "syn-source"
+      }
+    ],
+    "documents": [
+      {
+        "id": "syn-doc-project-proposal",
+        "title": "Technical Innovation Proposal (2 Pages)",
+        "description": "Outline of proposed undergraduate research or community technical solution.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "syn-source"
+      },
+      {
+        "id": "syn-doc-recommendation",
+        "title": "Faculty Letter of Recommendation",
+        "description": "Endorsement from Head of Department or academic project guide.",
+        "requirementType": "OPTIONAL",
+        "sourceReferenceId": "syn-source"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Submit Synthetic Demonstration Portfolio",
+        "description": "Submit online project brief via demo submission interface.",
+        "officialPortalUrl": "https://example.org/demo-grant"
+      }
+    ],
+    "sources": [
+      {
+        "id": "syn-source",
+        "url": "https://example.org/demo-grant/spec",
+        "organization": "NextStep Rebels Demo Lab",
+        "sourceType": "FOUNDATION",
+        "reviewedAt": "2026-11-01T00:00:00Z",
+        "freshness": "UNVERIFIED",
+        "excerpt": "Illustrative sample fixture used to test testing suites and verification labels.",
+        "notes": "Visibly marked synthetic demo fixture."
+      }
+    ],
+    "isSynthetic": true
+  }
+]
+
