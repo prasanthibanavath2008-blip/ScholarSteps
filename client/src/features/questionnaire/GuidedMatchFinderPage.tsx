@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StorageService } from '../../lib/storage';
 import { QuestionnaireAnswers } from '@shared/types';
+import { STATE_SELECT_OPTIONS } from '@shared/constants/states';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 import { Select } from '../../components/ui/Select';
@@ -78,14 +79,8 @@ export const GuidedMatchFinderPage: React.FC = () => {
   };
 
   const stateOptions = [
-    { value: '', label: 'Select your state' },
-    { value: 'Karnataka', label: 'Karnataka' },
-    { value: 'Maharashtra', label: 'Maharashtra' },
-    { value: 'Tamil Nadu', label: 'Tamil Nadu' },
-    { value: 'Delhi', label: 'Delhi' },
-    { value: 'Kerala', label: 'Kerala' },
-    { value: 'Uttar Pradesh', label: 'Uttar Pradesh' },
-    { value: 'Other State', label: 'Other State / Union Territory' },
+    { value: '', label: 'Select your state / UT' },
+    ...STATE_SELECT_OPTIONS,
   ];
 
   const levelOptions = [

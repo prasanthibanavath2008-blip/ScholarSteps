@@ -150,13 +150,13 @@
     },
     "studyLevel": "UNDERGRADUATE",
     "courseGroups": ["ENGINEERING", "GENERAL_DEGREE", "MEDICAL", "COMMERCE", "ARTS_SCIENCE"],
-    "domicileStates": ["All India", "Karnataka", "Maharashtra", "Tamil Nadu", "Delhi", "Kerala"],
-    "shortSummary": "National merit-cum-means scholarship for students above the 80th percentile in Class 12 board examinations pursuing regular degree courses.",
-    "detailedDescription": "The Central Sector Scheme of Scholarship for College and University Students is implemented by the Department of Higher Education to provide financial assistance to meritorious students from low-income families to meet a part of their day-to-day expenses while pursuing higher studies.",
+    "domicileStates": ["All India"],
+    "shortSummary": "National merit-cum-means scholarship for all Indian students scoring above 80th percentile in Class 12 board examinations pursuing regular degree courses.",
+    "detailedDescription": "The Central Sector Scheme of Scholarship for College and University Students is implemented across all states and union territories in India by the Department of Higher Education to provide financial assistance to meritorious students from low-income families.",
     "benefit": {
       "type": "FIXED",
       "headline": "₹12,000 / year for Undergraduate (₹20,000 / year at PG level)",
-      "details": "Annual grant disbursed in 10 installments or lump-sum via Direct Benefit Transfer through PFMS.",
+      "details": "Annual grant disbursed in installments or lump-sum via Direct Benefit Transfer through PFMS.",
       "amountMin": 12000,
       "amountMax": 20000,
       "currency": "INR"
@@ -173,7 +173,7 @@
         "label": "Enrolled Study Level",
         "operator": "EQUALS",
         "expectedValue": "UNDERGRADUATE",
-        "explanation": "Must be enrolled in the 1st year of a regular (non-correspondence / non-distance) degree course.",
+        "explanation": "Must be enrolled in the 1st year of a regular (non-correspondence / non-distance) degree course in India.",
         "sourceReferenceId": "nsp-source-guideline"
       },
       {
@@ -287,9 +287,9 @@
     },
     "studyLevel": "UNDERGRADUATE",
     "courseGroups": ["ENGINEERING", "DIPLOMA"],
-    "domicileStates": ["All India", "Karnataka", "Maharashtra", "Tamil Nadu", "Telangana", "Uttar Pradesh"],
-    "shortSummary": "Empowering young women pursuing professional degree or diploma courses in AICTE-approved engineering institutions.",
-    "detailedDescription": "Pragati is an initiative implemented by AICTE through the National Scholarship Portal to encourage girl students to pursue technical education. Up to two girl children per family are eligible for financial support.",
+    "domicileStates": ["All India"],
+    "shortSummary": "Empowering young women pursuing professional degree or diploma courses in AICTE-approved engineering institutions across all states in India.",
+    "detailedDescription": "Pragati is an initiative implemented by AICTE through the National Scholarship Portal to encourage girl students across all Indian states and Union Territories to pursue technical education. Up to two girl children per family are eligible.",
     "benefit": {
       "type": "FIXED",
       "headline": "₹50,000 per annum for tuition fees, computer, and academic supplies",
@@ -528,6 +528,429 @@
       }
     ],
     "isSynthetic": false
+  },
+  {
+    "id": "up-postmatric-scholarship-2026",
+    "slug": "up-postmatric-fee-reimbursement",
+    "version": 1,
+    "name": "Uttar Pradesh Post-Matric Scholarship and Fee Reimbursement Scheme",
+    "provider": {
+      "name": "Social Welfare & Backward Class Welfare Dept, Govt of Uttar Pradesh",
+      "type": "State Government Department",
+      "officialWebsite": "https://scholarship.up.gov.in/"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "GENERAL_DEGREE", "MEDICAL", "COMMERCE", "ARTS_SCIENCE"],
+    "domicileStates": ["Uttar Pradesh"],
+    "shortSummary": "Fee reimbursement and maintenance stipend for permanent Uttar Pradesh residents enrolled in higher education courses.",
+    "detailedDescription": "The Uttar Pradesh Scholarship and Fee Reimbursement Online System provides state financial aid for students studying in recognized universities, polytechnics, and colleges across UP.",
+    "benefit": {
+      "type": "REIMBURSEMENT",
+      "headline": "Full College Tuition Fee Reimbursement + Annual Living Allowance",
+      "details": "Non-refundable fees reimbursed directly to the student's Aadhaar-seeded bank account via PFMS.",
+      "amountMin": 15000,
+      "amountMax": 65000,
+      "currency": "INR"
+    },
+    "availability": "OPEN",
+    "deadlineType": "DATE_ONLY",
+    "deadlineDate": "2026-12-20",
+    "deadlineNotes": "Cycle verified on scholarship.up.gov.in; college forward cutoff follows in January.",
+    "officialPortalUrl": "https://scholarship.up.gov.in/",
+    "rules": [
+      {
+        "id": "up-rule-domicile",
+        "field": "domicileState",
+        "label": "Domicile State",
+        "operator": "EQUALS",
+        "expectedValue": "Uttar Pradesh",
+        "explanation": "Must be a bona fide resident of Uttar Pradesh with a valid state domicile certificate.",
+        "sourceReferenceId": "up-source-portal"
+      },
+      {
+        "id": "up-rule-study-level",
+        "field": "studyLevel",
+        "label": "Study Level",
+        "operator": "IN",
+        "expectedValue": ["UNDERGRADUATE", "POSTGRADUATE", "DIPLOMA"],
+        "explanation": "Must be pursuing an approved post-matric course in an affiliated institution.",
+        "sourceReferenceId": "up-source-portal"
+      },
+      {
+        "id": "up-rule-income",
+        "field": "householdAnnualIncome",
+        "label": "Family Income Ceiling",
+        "operator": "LESS_THAN_OR_EQUAL",
+        "expectedValue": 250000,
+        "explanation": "Gross family annual income must not exceed ₹2,50,000 (₹2,00,000 for General/OBC).",
+        "sourceReferenceId": "up-source-portal"
+      }
+    ],
+    "documents": [
+      {
+        "id": "up-doc-domicile",
+        "title": "UP Niwas (Domicile) Certificate",
+        "description": "Digital domicile certificate issued through edistrict.up.gov.in portal.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "up-source-portal"
+      },
+      {
+        "id": "up-doc-income",
+        "title": "Family Income Certificate (Aay Praman Patra)",
+        "description": "Tahsildar authorized income certificate with computerized application number.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "up-source-portal"
+      },
+      {
+        "id": "up-doc-marksheet",
+        "title": "Previous Qualifying Marksheet & Fee Receipt",
+        "description": "Original fee deposit slip signed by the college registrar.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "up-source-portal"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Online Registration on UP Scholarship Portal",
+        "description": "Register under Post-Matric other than inter category on scholarship.up.gov.in.",
+        "officialPortalUrl": "https://scholarship.up.gov.in/"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Aadhaar Demography & OTP Authentication",
+        "description": "Verify your identity using Aadhaar e-KYC on the portal.",
+        "officialPortalUrl": "https://scholarship.up.gov.in/"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Submit Final Print to College Desk",
+        "description": "Submit the computerized application printout along with fee receipts to your college within 3 days.",
+        "officialPortalUrl": "https://scholarship.up.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "id": "up-source-portal",
+        "url": "https://scholarship.up.gov.in/",
+        "organization": "Social Welfare Department, Government of Uttar Pradesh",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-25T11:00:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Guidelines for UP Post-Matric Fee Reimbursement scheme and e-District verification.",
+        "notes": "Verified against 2026-27 state order."
+      }
+    ],
+    "isSynthetic": false
+  },
+  {
+    "id": "tn-postmatric-scholarship-2026",
+    "slug": "tn-postmatric-scholarship",
+    "version": 1,
+    "name": "Tamil Nadu Post-Matric Scholarship Scheme",
+    "provider": {
+      "name": "Adi Dravidar and Tribal Welfare Dept, Govt of Tamil Nadu",
+      "type": "State Government Department",
+      "officialWebsite": "https://www.tn.gov.in/scheme/data_view/68903"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "GENERAL_DEGREE", "MEDICAL", "COMMERCE", "ARTS_SCIENCE"],
+    "domicileStates": ["Tamil Nadu"],
+    "shortSummary": "Full tuition waiver and mandatory fee coverage for students in government, aided, and self-financing engineering colleges in Tamil Nadu.",
+    "detailedDescription": "Implemented by the Government of Tamil Nadu to provide complete educational cost mitigation for eligible native students pursuing undergraduate degrees.",
+    "benefit": {
+      "type": "REIMBURSEMENT",
+      "headline": "100% Tuition Fee Exemption + Non-refundable Examination Fees",
+      "details": "Special fee and tuition fee credited directly to the educational institution or student savings account.",
+      "amountMin": 20000,
+      "amountMax": 85000,
+      "currency": "INR"
+    },
+    "availability": "OPEN",
+    "deadlineType": "DATE_ONLY",
+    "deadlineDate": "2026-12-31",
+    "deadlineNotes": "Cycle verified with TN Social Welfare gazette notification.",
+    "officialPortalUrl": "https://www.tn.gov.in/",
+    "rules": [
+      {
+        "id": "tn-rule-domicile",
+        "field": "domicileState",
+        "label": "Domicile State",
+        "operator": "EQUALS",
+        "expectedValue": "Tamil Nadu",
+        "explanation": "Applicant must be a native of Tamil Nadu with nativity certification.",
+        "sourceReferenceId": "tn-source-portal"
+      },
+      {
+        "id": "tn-rule-study-level",
+        "field": "studyLevel",
+        "label": "Study Level",
+        "operator": "IN",
+        "expectedValue": ["UNDERGRADUATE", "POSTGRADUATE"],
+        "explanation": "Must be enrolled in higher secondary, degree, or professional college course in Tamil Nadu.",
+        "sourceReferenceId": "tn-source-portal"
+      },
+      {
+        "id": "tn-rule-income",
+        "field": "householdAnnualIncome",
+        "label": "Annual Family Income Ceiling",
+        "operator": "LESS_THAN_OR_EQUAL",
+        "expectedValue": 250000,
+        "explanation": "Total annual family income must not exceed ₹2,50,000.",
+        "sourceReferenceId": "tn-source-portal"
+      }
+    ],
+    "documents": [
+      {
+        "id": "tn-doc-nativity",
+        "title": "Tamil Nadu Nativity & Community Certificate",
+        "description": "Issued by Zonal Deputy Tahsildar through e-Sevai centre.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "tn-source-portal"
+      },
+      {
+        "id": "tn-doc-income",
+        "title": "Revenue Income Certificate",
+        "description": "Annual income certificate issued within the past 6 months.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "tn-source-portal"
+      },
+      {
+        "id": "tn-doc-admission",
+        "title": "College Allotment Order & Fee Receipt",
+        "description": "Allotment certificate through TNEA or single window counseling.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "tn-source-portal"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Apply via College Scholarship Desk",
+        "description": "Submit initial electronic scholarship entry via institutional e-Sevai portal.",
+        "officialPortalUrl": "https://www.tn.gov.in/"
+      },
+      {
+        "stepNumber": 2,
+        "title": "District Welfare Officer Scrutiny",
+        "description": "District officer verifies e-district community certificate credentials.",
+        "officialPortalUrl": "https://www.tn.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "id": "tn-source-portal",
+        "url": "https://www.tn.gov.in/scheme/data_view/68903",
+        "organization": "Government of Tamil Nadu",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-22T08:30:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Post-Matric Scholarship Scheme for higher studies in Tamil Nadu institutions.",
+        "notes": "Verified against Tamil Nadu Higher Education concessions."
+      }
+    ],
+    "isSynthetic": false
+  },
+  {
+    "id": "telangana-epass-scholarship-2026",
+    "slug": "telangana-epass-rtf",
+    "version": 1,
+    "name": "Telangana ePASS Post-Matric Reimbursement of Tuition Fee (RTF)",
+    "provider": {
+      "name": "Welfare Departments, Government of Telangana",
+      "type": "State Government Department",
+      "officialWebsite": "https://telanganaepass.cgg.gov.in/"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "GENERAL_DEGREE", "MEDICAL", "COMMERCE", "ARTS_SCIENCE"],
+    "domicileStates": ["Telangana"],
+    "shortSummary": "Full tuition fee reimbursement and maintenance charges for college students in Telangana.",
+    "detailedDescription": "Administered by the Centre for Good Governance (CGG) for Telangana state students studying in professional and non-professional degree colleges.",
+    "benefit": {
+      "type": "REIMBURSEMENT",
+      "headline": "100% Tuition Fee (RTF) + Monthly Maintenance Allowance (MTF)",
+      "details": "Direct college fee reimbursement plus quarterly mess charges credited via DBT.",
+      "amountMin": 18000,
+      "amountMax": 70000,
+      "currency": "INR"
+    },
+    "availability": "OPEN",
+    "deadlineType": "DATE_ONLY",
+    "deadlineDate": "2026-12-15",
+    "deadlineNotes": "Cycle active on telanganaepass.cgg.gov.in; biometric authentication required.",
+    "officialPortalUrl": "https://telanganaepass.cgg.gov.in/",
+    "rules": [
+      {
+        "id": "ts-rule-domicile",
+        "field": "domicileState",
+        "label": "Domicile State",
+        "operator": "EQUALS",
+        "expectedValue": "Telangana",
+        "explanation": "Must be a native of Telangana with valid MeeSeva certification.",
+        "sourceReferenceId": "ts-source-portal"
+      },
+      {
+        "id": "ts-rule-study-level",
+        "field": "studyLevel",
+        "label": "Study Level",
+        "operator": "IN",
+        "expectedValue": ["UNDERGRADUATE", "POSTGRADUATE", "DIPLOMA"],
+        "explanation": "Must be enrolled in an affiliated degree or technical college in Telangana.",
+        "sourceReferenceId": "ts-source-portal"
+      },
+      {
+        "id": "ts-rule-income",
+        "field": "householdAnnualIncome",
+        "label": "Annual Family Income Ceiling",
+        "operator": "LESS_THAN_OR_EQUAL",
+        "expectedValue": 200000,
+        "explanation": "Family income must not exceed ₹2,00,000 per annum (₹1,50,000 for rural areas).",
+        "sourceReferenceId": "ts-source-portal"
+      }
+    ],
+    "documents": [
+      {
+        "id": "ts-doc-meeseva-income",
+        "title": "MeeSeva Integrated Caste & Income Certificate",
+        "description": "Digitally signed MeeSeva certificate with barcode.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "ts-source-portal"
+      },
+      {
+        "id": "ts-doc-ssc-memo",
+        "title": "SSC (Class 10) Marks Memo & Bonafide",
+        "description": "School passing certificate and current study bonafide.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "ts-source-portal"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Register Fresh Application on Telangana ePASS",
+        "description": "Enter SSC hall ticket number, year of passing, and Aadhaar card number.",
+        "officialPortalUrl": "https://telanganaepass.cgg.gov.in/"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Biometric Authentication at College",
+        "description": "Complete biometric authentication on ePASS pos machine at college counter.",
+        "officialPortalUrl": "https://telanganaepass.cgg.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "id": "ts-source-portal",
+        "url": "https://telanganaepass.cgg.gov.in/",
+        "organization": "Centre for Good Governance, Government of Telangana",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-24T14:00:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Telangana ePASS electronic post-matric reimbursement scheme.",
+        "notes": "Verified against Telangana Welfare Department notification."
+      }
+    ],
+    "isSynthetic": false
+  },
+  {
+    "id": "delhi-higher-ed-feewaiver-2026",
+    "slug": "delhi-higher-education-fee-waiver",
+    "version": 1,
+    "name": "Delhi Merit-cum-Means Financial Assistance Scheme",
+    "provider": {
+      "name": "Directorate of Higher Education, Govt of NCT of Delhi",
+      "type": "State Directorate",
+      "officialWebsite": "https://edistrict.delhigovt.nic.in/"
+    },
+    "studyLevel": "UNDERGRADUATE",
+    "courseGroups": ["ENGINEERING", "GENERAL_DEGREE", "COMMERCE", "MEDICAL", "ARTS_SCIENCE"],
+    "domicileStates": ["Delhi"],
+    "shortSummary": "Up to 100% college tuition fee waiver for students pursuing undergraduate courses in Delhi state universities.",
+    "detailedDescription": "Provides full or partial fee reimbursement for meritorious and needy students studying in state universities of Delhi (GGSIPU, DTU, NSUT, AUD, IIIT-Delhi, DSEU).",
+    "benefit": {
+      "type": "REIMBURSEMENT",
+      "headline": "100% or 50% Full Tuition Fee Reimbursement",
+      "details": "100% waiver for family income under ₹2.5L; 50% waiver for income between ₹2.5L and ₹6L.",
+      "amountMin": 25000,
+      "amountMax": 100000,
+      "currency": "INR"
+    },
+    "availability": "OPEN",
+    "deadlineType": "DATE_ONLY",
+    "deadlineDate": "2026-12-10",
+    "deadlineNotes": "Cycle active on Delhi e-District portal.",
+    "officialPortalUrl": "https://edistrict.delhigovt.nic.in/",
+    "rules": [
+      {
+        "id": "delhi-rule-domicile",
+        "field": "domicileState",
+        "label": "Domicile State",
+        "operator": "EQUALS",
+        "expectedValue": "Delhi",
+        "explanation": "Applicant must reside in NCT of Delhi with a valid Delhi address or schooling.",
+        "sourceReferenceId": "delhi-source-portal"
+      },
+      {
+        "id": "delhi-rule-study-level",
+        "field": "studyLevel",
+        "label": "Study Level",
+        "operator": "EQUALS",
+        "expectedValue": "UNDERGRADUATE",
+        "explanation": "Must be pursuing an undergraduate degree course in a recognized Delhi state university.",
+        "sourceReferenceId": "delhi-source-portal"
+      },
+      {
+        "id": "delhi-rule-income",
+        "field": "householdAnnualIncome",
+        "label": "Annual Family Income Ceiling",
+        "operator": "LESS_THAN_OR_EQUAL",
+        "expectedValue": 600000,
+        "explanation": "Income ceiling up to ₹6,00,000 per annum for partial waiver (under ₹2.5 Lakh for 100%).",
+        "sourceReferenceId": "delhi-source-portal"
+      }
+    ],
+    "documents": [
+      {
+        "id": "delhi-doc-income-certificate",
+        "title": "Delhi Revenue SDM Income Certificate",
+        "description": "Issued by SDM / Revenue Department GNCTD.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "delhi-source-portal"
+      },
+      {
+        "id": "delhi-doc-fee-receipt",
+        "title": "University Fee Receipt for Current Academic Year",
+        "description": "Original fee invoice and payment acknowledgement.",
+        "requirementType": "REQUIRED",
+        "sourceReferenceId": "delhi-source-portal"
+      }
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Register on e-District Delhi Portal",
+        "description": "Apply under Department of Higher Education -> Merit-cum-Means Financial Assistance.",
+        "officialPortalUrl": "https://edistrict.delhigovt.nic.in/"
+      },
+      {
+        "stepNumber": 2,
+        "title": "University Level Verification",
+        "description": "University scholarship committee verifies academic marks and forwards to DHE.",
+        "officialPortalUrl": "https://edistrict.delhigovt.nic.in/"
+      }
+    ],
+    "sources": [
+      {
+        "id": "delhi-source-portal",
+        "url": "https://edistrict.delhigovt.nic.in/",
+        "organization": "Directorate of Higher Education, Govt of NCT of Delhi",
+        "sourceType": "GOVERNMENT_PORTAL",
+        "reviewedAt": "2026-10-26T16:00:00Z",
+        "freshness": "REVIEWED",
+        "excerpt": "Delhi Government Merit-cum-Means financial assistance guidelines.",
+        "notes": "Reviewed from official GNCTD higher education circular."
+      }
+    ],
+    "isSynthetic": false
   }
 ]
-

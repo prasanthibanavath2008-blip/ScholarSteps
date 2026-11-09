@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../lib/auth';
+import { STATE_SELECT_OPTIONS } from '@shared/constants/states';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 import { Select } from '../../components/ui/Select';
@@ -25,14 +26,7 @@ export const StudentProfilePage: React.FC = () => {
     setTimeout(() => setSaved(false), 2500);
   };
 
-  const stateOptions = [
-    { value: 'Karnataka', label: 'Karnataka' },
-    { value: 'Maharashtra', label: 'Maharashtra' },
-    { value: 'Tamil Nadu', label: 'Tamil Nadu' },
-    { value: 'Delhi', label: 'Delhi' },
-    { value: 'Kerala', label: 'Kerala' },
-    { value: 'Other', label: 'Other State' },
-  ];
+  const stateOptions = STATE_SELECT_OPTIONS;
 
   const levelOptions = [
     { value: 'UNDERGRADUATE', label: 'Undergraduate (UG)' },

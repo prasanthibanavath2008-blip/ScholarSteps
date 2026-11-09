@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { filterScholarships, CatalogFilterOptions } from '../../lib/catalog';
+import { CATALOG_STATE_FILTER_OPTIONS } from '@shared/constants/states';
 import { ScholarshipCard } from '../../components/scholarships/ScholarshipCard';
 import { Input } from '../../components/ui/Input';
 import { Select } from '../../components/ui/Select';
@@ -82,12 +83,7 @@ export const ScholarshipExplorerPage: React.FC = () => {
     (selectedLevel !== 'ALL' ? 1 : 0) +
     (selectedAvailability !== 'ALL' ? 1 : 0);
 
-  const stateOptions = [
-    { value: 'ALL', label: 'All Regions / States' },
-    { value: 'Karnataka', label: 'Karnataka' },
-    { value: 'Maharashtra', label: 'Maharashtra' },
-    { value: 'All India', label: 'All-India Schemes' },
-  ];
+  const stateOptions = CATALOG_STATE_FILTER_OPTIONS;
 
   const levelOptions = [
     { value: 'ALL', label: 'All Study Levels' },

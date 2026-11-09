@@ -40,9 +40,12 @@ export function evaluateRule(
   switch (rule.operator) {
     case 'EQUALS': {
       const match =
-        typeof answer === 'string' && typeof rule.expectedValue === 'string'
+        (rule.field === 'domicileState' &&
+          typeof rule.expectedValue === 'string' &&
+          rule.expectedValue.toLowerCase() === 'all india') ||
+        (typeof answer === 'string' && typeof rule.expectedValue === 'string'
           ? answer.trim().toLowerCase() === rule.expectedValue.trim().toLowerCase()
-          : answer === rule.expectedValue;
+          : answer === rule.expectedValue);
 
       result = match ? 'PASS' : 'FAIL';
       reasonCode = match ? 'MATCH' : 'MISMATCH';
@@ -57,11 +60,14 @@ export function evaluateRule(
         ? rule.expectedValue
         : [rule.expectedValue];
 
-      const match = expectedList.some((item) =>
-        typeof item === 'string' && typeof answer === 'string'
-          ? item.toLowerCase() === answer.toLowerCase()
-          : item === answer
-      );
+      const match =
+        (rule.field === 'domicileState' &&
+          expectedList.some((item) => typeof item === 'string' && item.toLowerCase() === 'all india')) ||
+        expectedList.some((item) =>
+          typeof item === 'string' && typeof answer === 'string'
+            ? item.toLowerCase() === answer.toLowerCase()
+            : item === answer
+        );
 
       result = match ? 'PASS' : 'FAIL';
       reasonCode = match ? 'MATCH' : 'MISMATCH';

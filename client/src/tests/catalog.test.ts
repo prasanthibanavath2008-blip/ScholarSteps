@@ -18,14 +18,29 @@ describe('Catalog: Search and Filtering', () => {
     });
   });
 
-  it('filters scholarships by state', () => {
-    const karnatakaOnly = filterScholarships({ state: 'Karnataka' });
-    expect(karnatakaOnly.length).toBeGreaterThan(0);
-    karnatakaOnly.forEach((s) => {
-      expect(s.domicileStates.includes('Karnataka') || s.domicileStates.includes('All India')).toBe(
-        true
-      );
-    });
+  it('filters scholarships by state for both North and South India', () => {
+    // South India tests (Karnataka, Tamil Nadu, Telangana)
+    const karnataka = filterScholarships({ state: 'Karnataka' });
+    expect(karnataka.some((s) => s.slug === 'ssp-karnataka-postmatric')).toBe(true);
+    expect(karnataka.some((s) => s.domicileStates.includes('All India'))).toBe(true);
+
+    const tamilNadu = filterScholarships({ state: 'Tamil Nadu' });
+    expect(tamilNadu.some((s) => s.slug === 'tn-postmatric-scholarship')).toBe(true);
+    expect(tamilNadu.some((s) => s.domicileStates.includes('All India'))).toBe(true);
+
+    const telangana = filterScholarships({ state: 'Telangana' });
+    expect(telangana.some((s) => s.slug === 'telangana-epass-rtf')).toBe(true);
+
+    // North & Central/West India tests (Uttar Pradesh, Delhi, Maharashtra)
+    const uttarPradesh = filterScholarships({ state: 'Uttar Pradesh' });
+    expect(uttarPradesh.some((s) => s.slug === 'up-postmatric-fee-reimbursement')).toBe(true);
+    expect(uttarPradesh.some((s) => s.domicileStates.includes('All India'))).toBe(true);
+
+    const delhi = filterScholarships({ state: 'Delhi' });
+    expect(delhi.some((s) => s.slug === 'delhi-higher-education-fee-waiver')).toBe(true);
+
+    const maharashtra = filterScholarships({ state: 'Maharashtra' });
+    expect(maharashtra.some((s) => s.slug === 'mahadbt-rajarshi-chhatrapati-shahu-maharaj')).toBe(true);
   });
 
   it('filters scholarships by search query', () => {
