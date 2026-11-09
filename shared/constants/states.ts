@@ -67,3 +67,4 @@ export const CATALOG_STATE_FILTER_OPTIONS = [
   { value: 'All India', label: 'All-India National Schemes' },
   ...STATE_NAMES.map((name) => ({ value: name, label: name })),
 ];
+
