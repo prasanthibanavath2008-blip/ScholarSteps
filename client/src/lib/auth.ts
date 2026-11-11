@@ -62,6 +62,19 @@ function notifyAuthChange() {
   }
 }
 
+function shouldAttemptBackendApi(): boolean {
+  const configured = import.meta.env.VITE_API_BASE_URL;
+  if (configured && configured.startsWith('http')) return true;
+  if (typeof window !== 'undefined') {
+    return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  }
+  return false;
+}
+
+function getApiBaseUrl(): string {
+  return import.meta.env.VITE_API_BASE_URL || '/api/v1';
+}
+
 export class AuthService {
   static getCurrentSession(): { user: AuthUser; token: string } | null {
     try {
@@ -226,10 +239,10 @@ export class AuthService {
       academicScore: '85',
     });
 
-    // Sync with backend if available
+    // Sync with backend if available and configured
     try {
-      if (typeof fetch !== 'undefined') {
-        fetch('/api/v1/auth/register', {
+      if (typeof fetch !== 'undefined' && shouldAttemptBackendApi()) {
+        fetch(`${getApiBaseUrl()}/auth/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password: params.password || 'P@ssword123', displayName }),
@@ -261,10 +274,10 @@ export class AuthService {
       return { success: true, user: existing };
     }
 
-    // Try backend authentication
+    // Try backend authentication if available and configured
     try {
-      if (typeof fetch !== 'undefined') {
-        const res = await fetch('/api/v1/auth/login', {
+      if (typeof fetch !== 'undefined' && shouldAttemptBackendApi()) {
+        const res = await fetch(`${getApiBaseUrl()}/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password: params.password }),

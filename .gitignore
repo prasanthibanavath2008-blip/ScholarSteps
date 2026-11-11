@@ -11,8 +11,8 @@ build/
 
 # Environment variables (do not commit secrets)
 .env
-.env.local
-.env.*.local
+.env.*
+.env*
 
 # Logs
 npm-debug.log*
