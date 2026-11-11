@@ -3,32 +3,38 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../lib/auth';
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
-import { ArrowRight, ShieldCheck, Sparkles, User, Shield } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Sparkles, User, Shield, AlertCircle } from 'lucide-react';
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const { loginAsDemo } = useAuth();
+  const { login, loginAsDemo } = useAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    setTimeout(() => {
-      setIsLoading(false);
-      if (email === 'admin@scholarsteps.org') {
-        loginAsDemo('ADMIN');
-        navigate('/admin');
+    try {
+      const res = await login({ email, password });
+      if (res.success && res.user) {
+        if (res.user.role === 'ADMIN') {
+          navigate('/admin');
+        } else {
+          navigate('/dashboard');
+        }
       } else {
-        loginAsDemo('STUDENT');
-        navigate('/dashboard');
+        setError(res.error || 'Invalid credentials. Please verify your email.');
       }
-    }, 400);
+    } catch {
+      setError('An unexpected error occurred during sign-in.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleQuickDemoStudent = () => {
@@ -55,8 +61,7 @@ export const LoginPage: React.FC = () => {
                 Sign in to your preparation workspace
               </h2>
               <p className="text-sm text-ink-secondary leading-relaxed">
-                Sync preparation checklists across devices, track application milestones, and receive
-                source update notifications.
+                Sync preparation checklists across devices, track application milestones, and manage your accurate academic profile.
               </p>
             </div>
 
@@ -78,13 +83,14 @@ export const LoginPage: React.FC = () => {
               <div className="mb-6">
                 <h1 className="font-card-title text-2xl text-ink">Sign in</h1>
                 <p className="text-sm text-ink-secondary mt-1">
-                  Enter your credentials or choose a one-click evaluation session.
+                  Enter your student credentials or use evaluation quick-access.
                 </p>
               </div>
 
               {error && (
-                <div className="mb-4 p-3 bg-danger-tint border border-danger/30 rounded-control text-xs text-danger">
-                  {error}
+                <div className="mb-4 p-3 bg-danger-tint border border-danger/30 rounded-control text-xs text-danger flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{error}</span>
                 </div>
               )}
 
@@ -93,7 +99,7 @@ export const LoginPage: React.FC = () => {
                   label="Email Address"
                   type="email"
                   required
-                  placeholder="e.g. student@example.com"
+                  placeholder="e.g. you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -142,7 +148,7 @@ export const LoginPage: React.FC = () => {
                     onClick={handleQuickDemoStudent}
                     leftIcon={<User className="w-3.5 h-3.5 text-primary" />}
                   >
-                    Demo Student
+                    Demo Student (Evaluation)
                   </Button>
                   <Button
                     type="button"
@@ -170,4 +176,3 @@ export const LoginPage: React.FC = () => {
     </div>
   );
 };
-

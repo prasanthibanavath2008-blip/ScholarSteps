@@ -18,16 +18,12 @@ import {
 
 export const StudentDashboardPage: React.FC = () => {
   const navigate = useNavigate();
-  const { user, loginAsDemo } = useAuth();
+  const { user } = useAuth();
   const [plans, setPlans] = useState<PreparationPlan[]>([]);
 
   useEffect(() => {
-    // If not logged in, auto-login as demo student for immediate evaluator convenience
-    if (!user) {
-      loginAsDemo('STUDENT');
-    }
     setPlans(StorageService.getPlans());
-  }, [user, loginAsDemo]);
+  }, []);
 
   // Aggregate metrics (SDD Section 8.11)
   const totalPlans = plans.length;

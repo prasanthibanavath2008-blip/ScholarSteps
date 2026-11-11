@@ -1,28 +1,61 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../lib/auth';
+import { STATE_SELECT_OPTIONS } from '@shared/constants/states';
 import { Input } from '../../components/ui/Input';
+import { Select } from '../../components/ui/Select';
 import { Button } from '../../components/ui/Button';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ShieldCheck, AlertCircle } from 'lucide-react';
 
 export const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
-  const { loginAsDemo } = useAuth();
+  const { register } = useAuth();
 
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
+  const [domicileState, setDomicileState] = useState('Karnataka');
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
+    setError('');
 
-    setTimeout(() => {
+    if (!displayName.trim()) {
+      setError('Please enter your full name.');
+      return;
+    }
+    if (!email.trim()) {
+      setError('Please enter your email address.');
+      return;
+    }
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters long.');
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const res = await register({
+        displayName: displayName.trim(),
+        email: email.trim(),
+        password,
+        phone: phone.trim(),
+        domicileState,
+      });
+
+      if (res.success) {
+        navigate('/dashboard');
+      } else {
+        setError(res.error || 'Registration failed. Please check your details.');
+      }
+    } catch {
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
       setIsLoading(false);
-      loginAsDemo('STUDENT');
-      navigate('/dashboard');
-    }, 400);
+    }
   };
 
   return (
@@ -32,27 +65,52 @@ export const RegisterPage: React.FC = () => {
           <div className="text-center space-y-2">
             <h1 className="font-page-title text-2xl text-ink">Create student account</h1>
             <p className="text-sm text-ink-secondary">
-              Save opportunities, create cloud preparation checklists, and track milestones.
+              Save opportunities, create cloud preparation checklists, and track milestones with your own profile.
             </p>
           </div>
 
+          {error && (
+            <div className="p-3 bg-danger-tint border border-danger/30 rounded-control text-xs text-danger flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>{error}</span>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
-              label="Full Name"
+              label="Your Full Name"
               type="text"
               required
-              placeholder="e.g. Arun Kumar"
+              placeholder="e.g. Aarav Sharma"
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
+              helperText="This name will appear on your personalized dashboard and checklists."
             />
 
             <Input
               label="Email Address"
               type="email"
               required
-              placeholder="e.g. student@example.com"
+              placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <Select
+              label="State of Domicile"
+              options={STATE_SELECT_OPTIONS}
+              value={domicileState}
+              onChange={(e) => setDomicileState(e.target.value)}
+              helperText="Determines state-specific scheme eligibility."
+            />
+
+            <Input
+              label="Phone Number (Optional)"
+              type="tel"
+              placeholder="+91 98765 43210"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              helperText="For voluntary application deadline notifications."
             />
 
             <Input
@@ -95,4 +153,3 @@ export const RegisterPage: React.FC = () => {
     </div>
   );
 };
-
